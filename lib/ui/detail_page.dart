@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lab_03/model/conference.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_lab_03/extensions/extensions.dart';
 
 class DetailPage extends StatelessWidget {
   final Conference conference;
@@ -40,7 +41,7 @@ class DetailPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('${convertDateFromString(conference.start)} -  ${convertDateFromString(conference.end)}'),
+            child: Text('${conference.start.engDate()} -  ${conference.end.engDate()}'),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -66,11 +67,5 @@ class DetailPage extends StatelessWidget {
     } else {
       throw 'Could not launch $url';
     }
-  }
-
-  String convertDateFromString(String strDate){
-    DateTime date = DateTime.parse(strDate);
-    String result = DateFormat.yMMMd().format(date);
-    return result;
   }
 }
