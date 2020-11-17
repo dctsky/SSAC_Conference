@@ -23,9 +23,7 @@ class _ListPageState extends State<ListPage> {
 
   Future<void> _fetchList() async {
     _items = await fetchConferencelist();
-    setState(() {
-      _items;
-    });
+    setState(() {});
   }
 
   @override
@@ -61,7 +59,8 @@ class _ListPageState extends State<ListPage> {
       children: _items.map((conference) {
         return InkWell(
           child: MyListTile(conference),
-          onTap: () {       //누르면 화면 전환
+          onTap: () {
+            //누르면 화면 전환
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DetailPage(conference)),
