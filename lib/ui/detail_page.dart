@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lab_03/model/conference.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_lab_03/extensions/extensions.dart';
 
 class DetailPage extends StatelessWidget {
@@ -41,7 +40,8 @@ class DetailPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('${conference.start.engDate()} -  ${conference.end.engDate()}'),
+            child: Text(
+                '${conference.start.dateToString("MMM dd, yyyy")} - ${conference.end.dateToString("MMM dd, yyyy")}'),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
